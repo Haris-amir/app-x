@@ -17,21 +17,19 @@ performers = [
 ]
 
 # =========================
-# IMAGE LOADER (LOCAL FILES)
+# IMAGE PATH (FIXED FOR STREAMLIT CLOUD)
 # =========================
 
-IMAGE_FOLDER = "images"
+BASE_DIR = os.path.dirname(__file__)
+IMAGE_FOLDER = os.path.join(BASE_DIR, "images")
 
 def get_image_path(name):
     filename = name.split()[0].lower() + ".jpg"
     path = os.path.join(IMAGE_FOLDER, filename)
-
-    if os.path.exists(path):
-        return path
-    return None
+    return path if os.path.exists(path) else None
 
 # =========================
-# SESSION STATE (TRUE RANDOM ON FIRST LOAD)
+# SESSION STATE
 # =========================
 
 if "selected" not in st.session_state:
@@ -41,9 +39,9 @@ if "selected" not in st.session_state:
 # UI
 # =========================
 
-st.set_page_config(page_title="Performer App", layout="centered")
+st.set_page_config(page_title="Performers App", layout="centered")
 
-st.title("🎲 Performer App")
+st.title("🎲 Performer Swipe App")
 st.caption("Random picks + shuffle anytime")
 
 # =========================
@@ -67,6 +65,6 @@ for name in selected:
     if img_path:
         st.image(img_path, use_container_width=True)
     else:
-        st.warning(f"No image found for {name}")
+        st.error(f"Image not found for: {name}")
 
     st.divider()

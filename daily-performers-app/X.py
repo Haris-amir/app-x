@@ -24,9 +24,14 @@ BASE_DIR = os.path.dirname(__file__)
 IMAGE_FOLDER = os.path.join(BASE_DIR, "images")
 
 def get_image_path(name):
-    filename = name.split()[0].lower() + ".jpg"
-    path = os.path.join(IMAGE_FOLDER, filename)
-    return path if os.path.exists(path) else None
+    base = name.split()[0].lower()
+
+    for ext in [".jpg", ".jpeg", ".png"]:
+        path = os.path.join(IMAGE_FOLDER, base + ext)
+        if os.path.exists(path):
+            return path
+
+    return None
 
 # =========================
 # SESSION STATE

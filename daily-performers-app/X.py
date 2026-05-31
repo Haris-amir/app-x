@@ -7,13 +7,13 @@ import os
 # =========================
 
 performers = [
-    "Riley Reid","Adriana Chechik","Anikka Albrite","Abella Danger",
-    "Dani Daniels","August Ames","Mia Malkova","Elsa Jean",
+    "Aidra Fox","Adriana Chechik","Mac","Lust",
+    "Emma Hix","Molly","Mia Malkova","Cali",
     "Eva Lovia","Madison Ivy","Angela White","Phoenix Marie",
-    "Lana Rhoades","Kendra Sunderland","Jessa Rhodes","Emily Willis",
-    "Brandi Love","Gianna Dior","Nicole aniston","Peta Jensen",
-    "Blake Blossom","Lexi Luna","Lena Paul","Anna Claire Clouds",
-    "Savannah Bond","Jennifer White","Kayley Gunner"
+    "Lana Rhoades","Kendra Sunderland","Jessa Rhodes","Nikki Benz",
+    "Brandi Love","Luna Star","Nicole Aniston","Peta Jensen",
+    "Blake Blossom","Lexi Luna","Lena Paul","Azul hermosa",
+    "Savannah Bond","Jennifer White","Kayley Gunner","Rachel Starr"
 ]
 
 # =========================
@@ -33,7 +33,7 @@ def get_image_path(name):
 # =========================
 
 if "selected" not in st.session_state:
-    st.session_state.selected = random.sample(performers, 3)
+    st.session_state.selected = random.sample(performers, 5)
 
 # =========================
 # UI
@@ -48,8 +48,8 @@ st.caption("Random picks + shuffle anytime")
 # SHUFFLE BUTTON (ALWAYS RANDOM)
 # =========================
 
-if st.button("🔀 Shuffle 3 new performers"):
-    st.session_state.selected = random.sample(performers, 3)
+if st.button("🔀 Shuffle 5 new performers"):
+    st.session_state.selected = random.sample(performers, 5)
 
 selected = st.session_state.selected
 
